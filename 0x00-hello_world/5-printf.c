@@ -1,17 +1,15 @@
-#include<stdio.h>
+#include <stdio.h>
 
-/*
- * main - prints the message inside the printf function
- *
- * printf: is a function to print the message to the terminal
- * return: returns 0
- */
-
-
+/**
+* main - prints some message
+*
+* Uses printf to print the message
+* Return: Return 0 (Without warning)
+*/
 
 
 int main(void)
 {
-	printf("with proper grammar, but the outcome is a piece of art,");
+	printf("with proper grammar, but the outcome is a piece of art,\n");
 	return (0);
 }
