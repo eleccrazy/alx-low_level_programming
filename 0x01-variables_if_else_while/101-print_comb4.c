@@ -1,29 +1,29 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
 
 /**
- * main - Prints every three different combination of digits
- * Return: returns 0
+ * main - Prints 3 combination of numbers
+ *
+ * Return: Always (Success)
  */
-
 int main(void)
 {
-	int first, second, third;
+	int c, i, k;
 
-	for (first = 0; first <= 9; first++)
+	for (c = '0'; c <= '9'; c++)
 	{
-		for (second = 0; second <= 9; second++)
+		for (i = '0'; i <= '9'; i++)
 		{
-			for (third = 0; third <= 9; third++)
+			for (k = '0'; k <= '9'; k++)
 			{
-				if (first != second && second != third && third != first)
+				if (c < i && i < k)
 				{
-					if ((first == 0 || second > first) && (second == 0 || third > second))
+					putchar(c);
+					putchar(i);
+					putchar(k);
+
+					if (c != '7')
 					{
-						putchar(first + '0');
-						putchar(second + '0');
-						putchar(third + '0');
-						putchar(',');						
+						putchar(',');
 						putchar(' ');
 					}
 				}
@@ -31,6 +31,5 @@ int main(void)
 		}
 	}
 	putchar('\n');
-
 	return (0);
 }
