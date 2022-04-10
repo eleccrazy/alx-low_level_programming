@@ -1,29 +1,30 @@
 #include <stdio.h>
-
+#include <unistd.h>
 /**
- * main - Prints all possible combination of two 2-digit combinations
- * Return: returns 0 with success
+ * main - prints two 2 number combinations
+ * Return: returns 0 (success)
  */
 int main(void)
 {
-	int first, second, third, t;
+	int c, i, k, j;
 
-	for (first = 48; first <= 57; first++)
+	for (c = 48; c <= 57; c++)
 	{
-		for (second = 48; second <= 57; second++)
+		for (i = 48; i <= 57; i++)
 		{
-			for (third = 48; third <= 57; third++)
+			for (k = 48; k <= 57; k++)
 			{
-				for (t = 48; t <= 57; t++)
+				for (j = 48; j <= 57; j++)
 				{
-				if (((third + t) > (first + second) &&  third >= first) || first < third)
+				if (((k + j) > (c + i) &&  k >= c) || c < k)
 				{
-					putchar(first);
-					putchar(second);
+					putchar(c);
+					putchar(i);
 					putchar(' ');
-					putchar(third);
-					putchar(t);
-					if (first + second + third + t == 225 && first == 98)
+					putchar(k);
+					putchar(j);
+
+					if (c + i + k + j == 227 && c == 57)
 					{
 					break;
 					}
