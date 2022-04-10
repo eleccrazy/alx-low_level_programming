@@ -6,25 +6,25 @@
  */
 int main(void)
 {
-	int c, i, k, j;
+	int first, second, third, l;
 
-	for (c = 48; c <= 57; c++)
+	for (first = 48; first <= 57; first++)
 	{
-		for (i = 48; i <= 57; i++)
+		for (second = 48; second <= 57; second++)
 		{
-			for (k = 48; k <= 57; k++)
+			for (third = 48; third <= 57; third++)
 			{
-				for (j = 48; j <= 57; j++)
+				for (l = 48; l <= 57; l++)
 				{
-				if (((k + j) > (c + i) &&  k >= c) || c < k)
+				if (((third + l) > (first + second) &&  third >= first) || first < third)
 				{
-					putchar(c);
-					putchar(i);
+					putchar(first);
+					putchar(second);
 					putchar(' ');
-					putchar(k);
-					putchar(j);
+					putchar(third);
+					putchar(l);
 
-					if (c + i + k + j == 227 && c == 57)
+					if (first + second + third + l == 227 && first == 57)
 					{
 					break;
 					}
