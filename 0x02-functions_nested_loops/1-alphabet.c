@@ -2,10 +2,10 @@
 
 /**
   * print_alphabet - prints alphabets using _putchar function
-  * Return: returns 0 with success
+  * Return: returns nothing
   */
 
-int print_alphabet(void)
+void print_alphabet(void)
 {
 	char alpha = 'a';
 
@@ -15,5 +15,5 @@ int print_alphabet(void)
 		alpha++;
 	}
 	_putchar('\n');
-	return (0);
+	return;
 }
