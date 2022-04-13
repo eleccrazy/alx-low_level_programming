@@ -16,7 +16,7 @@ int main(void)
 		{
 			sum += m;
 		}
-		multi++;
+		m++;
 	}
 	printf("%d\n", sum);
 	return (0);
