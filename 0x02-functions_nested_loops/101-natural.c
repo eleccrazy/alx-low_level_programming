@@ -2,22 +2,22 @@
 
 /**
  * main - prints sum of all multiples of 3 or 5 below 1024
- * Return: 0
+ * Return: 0 with success
  */
 
 int main(void)
 {
-	int multi = 0;
-	int res = 0;
+	int m = 0;
+	int sum = 0;
 
-	while (multi < 1024)
+	while (m < 1024)
 	{
-		if (multi % 3 == 0 || multi % 5 == 0)
+		if (m % 3 == 0 || m % 5 == 0)
 		{
-			res += multi;
+			sum += m;
 		}
-		multi += 1;
+		multi++;
 	}
-	printf("%d\n", res);
+	printf("%d\n", sum);
 	return (0);
 }
