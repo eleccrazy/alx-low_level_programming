@@ -1,5 +1,9 @@
 #include "main.h"
 
+/**
+  *rev_string - reverses strings that it accepts as an argument
+  *@s: a string argument to be reversed
+  */
 
 void rev_string(char *s)
 {
@@ -23,5 +27,4 @@ void rev_string(char *s)
 		mid++;
 		index--;
 	}
-	
 }
