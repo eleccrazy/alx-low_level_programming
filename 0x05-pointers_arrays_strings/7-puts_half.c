@@ -1,6 +1,6 @@
 #include "main.h"
 
-/** 
+/**
   * puts_half - prints the second half of the string
   * @str: a string argument
   */
@@ -22,7 +22,7 @@ void puts_half(char *str)
 	else
 		half_index = length / 2;
 
-	while (half_index < length)
+	while (half_index <= length)
 	{
 		_putchar(str[half_index]);
 		half_index++;
