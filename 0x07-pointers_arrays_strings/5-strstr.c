@@ -33,7 +33,6 @@ char *_strstr(char *haystack, char *needle)
 					j++;
 					haystack++;
 				}
-				break;
 			}
 		}
 
