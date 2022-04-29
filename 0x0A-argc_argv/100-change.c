@@ -1,5 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<ctype.h>
 
 /**
  * main - prints the minimum number of coins to make change
