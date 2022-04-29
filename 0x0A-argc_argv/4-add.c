@@ -13,41 +13,29 @@
  * otherwise it returns 0 with success
  *
  */
-
-int check_arg_for_digit(char *str)
+int main(int argc, char *argv[])
 {
-	int i, len;
+	int sum = 0, i, j, length;
+	char *sub_string;
 
-	len = strlen(str);
-
-	for (i = 0; i < len; i++)
-	{
-		if (isdigit(str[i]) == 0)
-			return (0);
-		else
-			return (1);
-	}
-
-	return (0);
-}
-
-int main(int argc, char **argv)
-{
-	int i = 1;
-	int sum = 0;
-
-	if (argc == 1)
+	if (argc < 2)
 		printf("0\n");
-
-	else if (argc > 1)
+	else
 	{
-		for (; i < argc; i++)
+		for (i = 1; i < argc; i++)
 		{
-			if (check_arg_for_digit(argv[i]) == 0)
+			sub_string = argv[i];
+			length = strlen(sub_string);
+
+			for (j = 0; j < length; j++)
 			{
-				printf("Error\n");
-				return (1);
+				if (isdigit(*(sub_string + j)) == 0)
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
+
 			sum += atoi(argv[i]);
 		}
 
@@ -56,3 +44,4 @@ int main(int argc, char **argv)
 
 	return (0);
 }
+
