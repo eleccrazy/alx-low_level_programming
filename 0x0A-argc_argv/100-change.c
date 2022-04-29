@@ -13,7 +13,7 @@
  *
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	int coin_count = 0, money;
 
@@ -26,7 +26,10 @@ int main(int argc, char *argv[])
 	money = atoi(argv[1]);
 
 	if (money < 0)
+	{
 		printf("0\n");
+		return (0);
+	}
 	else
 	{
 		while (money != 0)
