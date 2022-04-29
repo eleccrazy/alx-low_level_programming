@@ -3,7 +3,7 @@
 
 /**
  * This header file contains all the prototypes required for the
- * 0x09-static_libraries project.
+ * 0x0A-argc_argv project.
  *
  * @author: Gizachew Bayness
  *
