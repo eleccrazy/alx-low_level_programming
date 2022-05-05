@@ -133,5 +133,5 @@ char **strtow(char *str)
 
 	word_from_str[w_index] = NULL;
 
-	return (word_from_str);
+	return (no_of_words);
 }
