@@ -2,6 +2,24 @@
 #include <stdlib.h>
 
 /**
+ * size_of_str - Computes the size of string
+ *
+ * @str: The string whose size to be computed.
+ *
+ * Return: The size of the string.
+ *
+ */
+
+int size_of_str(char *str)
+{
+	int size = 0, index = 0;
+
+	for (; str[index]; index++)
+		size++;
+	return (size);
+}
+
+/**
  * str_concat - Concatenates two strings
  *
  * @s1: The first string to be concatenated
@@ -15,37 +33,28 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	char *concat_str;
-	int size_s1 = 0, size_s2 = 0;
-	int i, size_conc, j = 0;
+	char *str_concat;
+	int s2_index = 0, s1_size, s2_size, size, index;
 
 	if (s1 == NULL)
 		s1 = "";
-
 	if (s2 == NULL)
 		s2 = "";
 
-	for (i = 0; s1[i]; i++)
-		size_s1++;
+	s1_size = size_of_str(s1);
+	s2_size = size_of_str(s2);
 
-	for (i = 0; s2[i]; i++)
-		size_s2++;
+	size = s1_size + s2_size;
 
-	size_conc = size_s1 + size_s2;
-	size_conc += 1;
+	str_concat = malloc(sizeof(char) * size + 1);
 
-	concat_str = malloc(sizeof(char) * size_conc);
+	for (index = 0; index < s1_size; index++)
+		str_concat[index] = *(s1 + index);
 
-	if (concat_str == NULL)
-		return (NULL);
+	for (; index < size && s2_index < s2_size; index++, s2_index++)
+		str_concat[index] = *(s2 + s2_index);
 
-	for (i = 0; i < size_s1; i++)
-		concat_str[i] = s1[i];
+	str_concat[size] = '\0';
 
-	for (; i < size_conc && j < size_s2; i++, j++)
-		concat_str[i] = s2[j];
-
-	concat_str[size_conc] = '\0';
-
-	return (concat_str);
+	return (str_concat);
 }
