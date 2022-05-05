@@ -68,17 +68,18 @@ char **init_str(char *str)
 	if (no_of_words == 0)
 		return (NULL);
 
-	new_str = malloc(sizeof(char *) * no_of_words + 1);
+	new_str = malloc(sizeof(char *) * (no_of_words + 1));
 
 	if (new_str == NULL)
 		return (NULL);
+
 	for (; i < no_of_words; i++)
 	{
 		while (str[index] == ' ')
 			index++;
 
 		no_of_letters = count_word_len(str + index);
-		new_str[i] = malloc(sizeof(char) * no_of_letters + 1);
+		new_str[i] = malloc(sizeof(char) * (no_of_letters + 1));
 
 		if (new_str[i] == NULL)
 		{
