@@ -131,7 +131,7 @@ char **strtow(char *str)
 		word_from_str[w_index][l_index] = '\0';
 	}
 
-	word_from_str[w_index] = NULL;
+	word_from_str[no_of_words] = NULL;
 
-	return (no_of_words);
+	return (word_from_str);
 }
