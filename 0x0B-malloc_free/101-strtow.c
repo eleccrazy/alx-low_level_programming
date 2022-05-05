@@ -79,12 +79,13 @@ char **init_str(char *str)
 			index++;
 
 		no_of_letters = count_word_len(str + index);
-		new_str[i] = malloc(sizeof(char) * (no_of_letters + 1));
+		new_str[i] = malloc(sizeof(char) * (no_of_letters + 2));
 
 		if (new_str[i] == NULL)
 		{
 			for (; i >= 0; i--)
 				free(new_str[i]);
+
 			free(new_str);
 			return (NULL);
 		}
