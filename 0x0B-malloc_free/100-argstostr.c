@@ -8,7 +8,7 @@
  * @ac: Number of arguments to be passed.
  * @av: An array of pointers to the passed arguments.
  *
- * Return: Returns NULL ac is 0 or av is null or if the
+ * Return: Returns NULL if ac is 0 or av is null or if the
  * program fails to create a memory, otherwise it returns
  * a pointer to the new string.
  *
@@ -39,14 +39,14 @@ char *argstostr(int ac, char **av)
 	i = 0;
 	while (i < ac)
 	{
-		for (j = 0; av[i][j]; j++)
-			big_str[str_index++] = av[i][j];
+		for (j = 0; av[i][j]; j++, str_index++)
+			big_str[str_index] = av[i][j];
 
 		big_str[str_index++] = '\n';
 		i++;
 	}
 
-	big_str[total_size] = '\0';
+	big_str[str_index++] = '\0';
 
 	return (big_str);
 }
