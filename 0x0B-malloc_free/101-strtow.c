@@ -79,7 +79,7 @@ char **init_str(char *str)
 			index++;
 
 		no_of_letters = count_word_len(str + index);
-		new_str[i] = malloc(sizeof(char) * (no_of_letters + 2));
+		new_str[i] = malloc(sizeof(char) * (no_of_letters + 1));
 
 		if (new_str[i] == NULL)
 		{
@@ -128,10 +128,10 @@ char **strtow(char *str)
 		for (l_index = 0; l_index < word_len; l_index++)
 			word_from_str[w_index][l_index] = str[i++];
 
-		word_from_str[w_index][word_len] = '\0';
+		word_from_str[w_index][l_index] = '\0';
 	}
 
-	word_from_str[no_of_words] = NULL;
+	word_from_str[w_index] = NULL;
 
 	return (word_from_str);
 }
