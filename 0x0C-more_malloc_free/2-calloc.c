@@ -28,7 +28,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	fill_mem = new_mem;
 
-	for (; i < nmemb; i++)
+	for (; i < nmemb * size; i++)
 		fill_mem[i] = 0;
 
 	return (new_mem);
