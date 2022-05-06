@@ -40,27 +40,28 @@ int length_of_string(char *str)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *new_str;
-	unsigned int s1_len, index = 0, i, j;
+	unsigned int len, index = 0;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
 
-	s1_len = length_of_string(s1);
+	len = length_of_string(s1);
+	len += n;
 
-	new_str = malloc(sizeof(char) * (s1_len + n + 1));
+	new_str = malloc(sizeof(char) * len);
 
 	if (new_str == NULL)
 		return (NULL);
 
-	for (i = 0; i < s1_len; i++, index++)
-		new_str[index] = s1[i];
+	for (len = 0; s1[index]; len++, index++)
+		new_str[len] = s1[index];
 
-	for (j = 0; index < (s1_len + n); j++, index++)
-		new_str[index] = s2[j];
+	for (index = 0; s2[index] && index < n; index++, len++)
+		new_str[len] = s2[index];
 
-	new_str[index++] = '\0';
+	new_str[len++] = '\0';
 
 	return (new_str);
 
