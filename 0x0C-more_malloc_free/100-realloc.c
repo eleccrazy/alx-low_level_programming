@@ -28,17 +28,20 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	if (new_size == 0 && ptr != NULL)
 	{
-		new_mem = malloc(new_size += 1);
-
-		if (new_mem == NULL)
-			return (NULL);
 		free(ptr);
 		return (NULL);
 	}
 
-	new_size += 1;
+	if (ptr == NULL)
+	{
+		new_mem = malloc(new_size);
+		if (new_mem == NULL)
+			return (NULL);
+		return (new_mem);
+	}
 
 	new_mem = malloc(new_size);
+
 	if (new_mem == NULL)
 		return (NULL);
 
