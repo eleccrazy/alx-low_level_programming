@@ -3,6 +3,7 @@
 
 /**
  * File: 0-object_like_macro.h
+ *
  * Desc: This header file defines a macro named SIZE an
  * abbreviation for token 1024.
  *
