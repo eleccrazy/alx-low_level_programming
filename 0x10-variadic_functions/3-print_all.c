@@ -10,9 +10,7 @@
 
 void print_int (va_list ap)
 {
-	int number = va_arg(ap, int);
-
-	printf("%d", number);
+	printf("%d", va_arg(ap, int));
 }
 
 /**
@@ -24,9 +22,7 @@ void print_int (va_list ap)
 
 void print_float (va_list ap)
 {
-	double number = va_arg(ap, double);
-
-	printf("%f", number);
+	printf("%f", va_arg(ap, double));
 }
 
 /**
@@ -38,9 +34,7 @@ void print_float (va_list ap)
 
 void print_char(va_list ap)
 {
-	char ch = va_arg(ap, int);
-
-	printf("%c", ch);
+	printf("%c", va_arg(ap, int));
 }
 
 /**
@@ -69,41 +63,36 @@ void print_string(va_list ap)
 
 void print_all(const char * const format, ...)
 {
-	int i = 0;
+	int i = 0, j;
+	char *separator = "";
+
+	print_struct form[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string}
+	};
 
 	va_list arg_param;
 
 	va_start(arg_param, format);
 
-	while (format && *(format + i))
+	while (format && (*(format + i)))
 	{
+		j = 0;
+		while (j < 4 && (*(format + i) != *(form[j].fmt)))
+			j++;
 
-		while (!(*(format + i) == 'c' || *(format + i) == 'i' ||
-				*(format + i) == 's' || *(format + i) == 'f'))
-			i++;
-
-		switch (*(format + i))
+		if (j < 4)
 		{
-			case 'c':
-				print_char(arg_param);
-				break;
-			case 'i':
-				print_int(arg_param);
-				break;
-			case 's':
-				print_string(arg_param);
-				break;
-			case 'f':
-				print_float(arg_param);
-				break;
-			default:
-				break;
+			printf("%s", separator);
+			form[j].printer(arg_param);
+			separator = ", ";
 		}
 
-		if ((*(format + i + 1)))
-			printf(", ");
 		i++;
 	}
+
 	printf("\n");
 
 	va_end(arg_param);
