@@ -35,8 +35,17 @@
 
 int count_nodes(const listint_t *slow)
 {
-	int nodes = 3;
+	int nodes = 0;
 	const listint_t *traverse = slow;
+
+	while (traverse->next != slow)
+	{
+		nodes++;
+		traverse = traverse->next;
+	}
+
+	slow = slow->next;
+	traverse = slow->next->next;
 
 	while (traverse->next != slow)
 	{
@@ -86,7 +95,7 @@ size_t print_listint_safe(const listint_t *head)
 	size_t nodes = 0, i = 0;
 
 	if (head == NULL)
-		return (0);
+		exit(98);
 
 	nodes = detect_loop(head);
 
