@@ -25,32 +25,30 @@
 /**
  * count_nodes - Counts all unique nodes in the list.
  *
- * @slow: A pointer to the address where the two pointers
- * fast and slow point on the same address int the detect_loop
- * function.
+ * @slow: A pointer that moves one node ahead a time.
+ * @fast: A pointer that moves two node ahead a time.
  *
  * Return: Returns numbe of unique nodes with in the loop.
  *
  */
 
-int count_nodes(const listint_t *slow)
+size_t count_nodes(const listint_t *slow, const listint_t *fast)
 {
-	int nodes = 0;
-	const listint_t *traverse = slow;
+	size_t nodes = 1;
 
-	while (traverse->next != slow)
+	while (fast != slow)
 	{
 		nodes++;
-		traverse = traverse->next;
+		slow = slow->next;
+		fast = fast->next;
 	}
 
 	slow = slow->next;
-	traverse = slow->next->next;
 
-	while (traverse->next != slow)
+	while (fast != slow)
 	{
 		nodes++;
-		traverse = traverse->next;
+		slow = slow->next;
 	}
 
 	return (nodes);
@@ -66,17 +64,23 @@ int count_nodes(const listint_t *slow)
  *
  */
 
-int detect_loop(const listint_t *h)
+size_t detect_loop(const listint_t *h)
 {
-	const listint_t *slow = h, *fast = h;
+	const listint_t *slow, *fast;
 
-	while (slow && fast && fast->next)
+	slow = h->next;
+	fast = h->next->next;
+
+	while (fast)
 	{
+		if (slow == fast)
+		{
+			slow = h;
+			return (count_nodes(slow, fast));
+		}
+
 		slow = slow->next;
 		fast = fast->next->next;
-
-		if (slow == fast)
-			return (count_nodes(slow));
 	}
 
 	return (0);
@@ -92,7 +96,7 @@ int detect_loop(const listint_t *h)
 
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nodes = 0, i = 0;
+	size_t nodes, i = 0;
 
 	if (head == NULL)
 		exit(98);
