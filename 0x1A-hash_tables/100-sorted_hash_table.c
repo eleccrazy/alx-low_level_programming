@@ -3,6 +3,8 @@
 #define SUCCESS 1
 #define FAILURE 0
 
+int shash_table_set(shash_table_t *ht, const char *key, const char *value);
+
 /**
  * shash_table_create - Creates a sorted hash table.
  *
