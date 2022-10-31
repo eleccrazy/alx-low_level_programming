@@ -32,7 +32,7 @@ void print_array(int *array, size_t start, size_t last)
  * @array: The array to be searched.
  * @left: The left bound index of reconstructed array.
  * @right: The right bound index of reconstructed array.
- * @value: The valut to search for.
+ * @value: The value to search for.
  *
  * Return: -1 if the value is not found in the array, otherwise it returns the
  * index at which the value is present.
